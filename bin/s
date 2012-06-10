@@ -1,0 +1,22 @@
+#!/bin/bash
+
+hosts=`cat ~/.ssh/known_hosts | awk '{print $1}' | awk -F, '{print $1}'`
+
+declare -a myarray=($hosts)
+
+for (( i = 0 ; i < ${#myarray[@]} ; i++ ))
+do
+	echo $i ${myarray[$i]}
+done
+
+echo "Enter number of server to connect to:"
+
+read number
+
+if ! [[ "$number" =~ ^[0-9]+$ ]] ; then
+   exec >&2; echo "error: Not a number"; exit 1
+fi
+
+ssh `whoami`@${myarray[$number]}
+
+

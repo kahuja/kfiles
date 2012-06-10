@@ -1,0 +1,2 @@
+sudo mkdir /Volumes/kanwal
+sudo mount -o -P -t nfs nubuntu:/home/kanwal /Volumes/kanwal

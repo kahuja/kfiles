@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+ssh kahuja@sshproxy2.yellowpages.com \
+			-L 3390:ypcdt02592.yellowpages.local:3389 \
+			-L 5900:ypcmc08931.corp.yp.com:5900 \
+			-L 5901:ypcmc08931.corp.yp.com:5901 \
+			-L 3393:ashdevchatws02.dev.keen.com:3389 \
+			-L 9222:10.10.1.203:22
+#			-L 3389:ypcdt02607.yellowpages.local:3389 \
+#			-L 3390:ypcdt02607-vm01.yellowpages.local:3389 # \
+#			-L 3391:10.10.1.124:3389 \
+#			-L 3392:10.10.1.173:3389 \
+#			-L 5900:10.10.1.203:5900 \
+#			-L 9222:10.10.1.203:22

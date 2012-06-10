@@ -1,0 +1,31 @@
+#!/bin/bash
+
+LOCAL=/Users/kanwal/Documents/EVault
+REMOTE=/Volumes/users/KAhuja/Private
+MOUNT=`mount | grep -i users`
+ARGS1="--delete --exclude=*.DS_Store* --exclude=._* --exclude=*.swp -auvr"
+ARGS="$ARGS1 --dry-run"
+GREP_PATTERN=".*[^\/]$"
+if [[ "$MOUNT" == *users* ]] ;
+then
+	#copy from local to remote first
+	if [[ $1 == "magicpassword" ]];
+	then
+		rsync $ARGS1 $LOCAL/Documents $REMOTE | grep -i $GREP_PATTERN
+
+		#now remote to local
+		# For now we will only mirror... try to always work locally.
+		#rsync $ARGS1 $REMOTE/Documents $LOCAL | grep -i $GREP_PATTERN
+	else
+		rsync $ARGS $LOCAL/Documents $REMOTE | grep -i $GREP_PATTERN
+
+		#now remote to local
+		# For now we will only mirror... try to always work locally.
+		#rsync $ARGS $REMOTE/Documents $LOCAL | grep -i $GREP_PATTERN
+	fi
+else
+	echo "Users share is not mounted.";
+fi
+
+#cat /tmp/$$.log
+
