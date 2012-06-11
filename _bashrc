@@ -97,7 +97,7 @@ if [ $OS == "Darwin" ]; then
 
 	#Perl Settings
 	export VERSIONER_PERL_PREFER_32_BIT=yes
-	export VERSIONER_PERL_VERSION=5.8.9
+	export VERSIONER_PERL_VERSION=5.12.3
 
 	#Python Settings
 	export PYTHONSTARTUP=$HOME/.pythonrc.py
