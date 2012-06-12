@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# Stole this script from https://github.com/sontek. Thanks!
+
 function link_file {
     source="${PWD}/$1"
     target="${HOME}/${1/_/.}"
