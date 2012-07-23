@@ -59,6 +59,7 @@ alias lma='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
 bind "set completion-ignore-case On"
 set -o vi
 
+screen -ls
 
 OS=`uname -s`
 if [ $OS == "Darwin" ]; then
