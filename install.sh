@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Stole this script from https://github.com/sontek. Thanks!
 
