@@ -121,6 +121,10 @@ let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.svn"
 "make green
 map <Leader>mg :call MakeGreen()<cr>
 
+"Cntrl-P
+nmap <leader>t :CtrlP<CR>
+nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+
 "tasklist
 map <leader>tl <Plug>TaskList
 
