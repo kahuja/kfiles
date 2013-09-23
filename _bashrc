@@ -9,28 +9,6 @@ addToPath () {
 }
 
 
-#test -r /sw/bin/init.sh && . /sw/bin/init.sh
-export TERM=xterm-color
-export PS1='\[\033[01;40m\]\u@\h\[\033[01;40m\] \W \$\[\033[00m\] '
-export CLICOLOR=1
-export LSCOLORS=Hxfxcxdxbxegedabagacad
-alias ls='ls -GF'
-alias ll='ls -hl'
-alias rm='rm -i'
-alias cp='cp -i'
-
-#Directory bookmarks
-alias m1='alias g1="cd `pwd`"'
-alias m2='alias g2="cd `pwd`"'
-alias m3='alias g3="cd `pwd`"'
-alias m4='alias g4="cd `pwd`"'
-alias m5='alias g5="cd `pwd`"'
-alias m6='alias g6="cd `pwd`"'
-alias m7='alias g7="cd `pwd`"'
-alias m8='alias g8="cd `pwd`"'
-alias m9='alias g9="cd `pwd`"'
-alias mdump='alias|grep -e "alias g[0-9]"|grep -v "alias m" > ~/.bookmarks'
-alias lma='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
 
 
 #test -r /sw/bin/init.sh && . /sw/bin/init.sh
@@ -42,6 +20,7 @@ alias ls='ls -GF'
 alias ll='ls -hl'
 alias rm='rm -i'
 alias cp='cp -i'
+alias vi=vim
 
 #Directory bookmarks
 alias m1='alias g1="cd `pwd`"'
@@ -81,9 +60,6 @@ if [ $OS == "Darwin" ]; then
 	# Set the path for Android SDK
 	export PATH="/Users/$USER/Library/Android/android-sdk-mac_86/tools:$PATH"
 
-	bind "set completion-ignore-case On"
-	set -o vi
-
 	#Mono Settings
 	export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
 	export MONO_PATH=/Library/Frameworks/Mono.framework/Versions/Current/share/NAnt/bin
@@ -103,5 +79,5 @@ if [ $OS == "Darwin" ]; then
 	#Python Settings
 	export PYTHONSTARTUP=$HOME/.pythonrc.py
 elif [ $OS == "Linux" ]; then
-	echo "No Linux Settings"
+	git config --global --unset diff.external
 fi
