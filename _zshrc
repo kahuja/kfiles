@@ -35,6 +35,10 @@ ZSH_THEME="blinks"
 
 #aliases
 alias vi vim
+alias ls='ls -GF'
+alias ll='ls -hl'
+alias rm='rm -i'
+alias cp='cp -i'
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -50,3 +54,46 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/${USER}/bin
+
+
+#Set VI for the commandline editor
+set -o vi
+
+
+#OS Specific stuff
+OS=`uname -s`
+if [ $OS == "Darwin" ]; then
+	# Setting PATH for MacPython 2.5
+	# The orginal version is saved in .bash_profile.pysave
+	PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
+	export PATH
+
+	# python - homebrew style
+	export PATH=/usr/local/share/python:$PATH
+	export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
+
+	# Set the path. Had this in .bash_login, but when i added bashrc it isn't run anymore....
+	export PATH="/Users/$USER/Library/Android/android-sdk-mac_86/platform-tools:/Users/$USER/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/usr/local/mysql/bin:/Applications:$PATH"
+
+	# Set the path for WireShark
+	export PATH="/Users/$USER/bin/WireShark:$PATH"
+
+	# Set the path for Android SDK
+	export PATH="/Users/$USER/Library/Android/android-sdk-mac_86/tools:$PATH"
+
+	#Mono Settings
+	export PKG_CONFIG_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib/pkgconfig
+	export MONO_PATH=/Library/Frameworks/Mono.framework/Versions/Current/share/NAnt/bin
+
+	# Homebrew
+	export PATH=/usr/local/bin:$PATH
+
+	#Perl Settings
+	export VERSIONER_PERL_PREFER_32_BIT=yes
+	export VERSIONER_PERL_VERSION=5.12.3
+
+	#Python Settings
+	export PYTHONSTARTUP=$HOME/.pythonrc.py
+elif [ $OS == "Linux" ]; then
+	git config --global --unset diff.external
+fi
