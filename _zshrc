@@ -34,7 +34,7 @@ ZSH_THEME="blinks"
 
 
 #aliases
-alias vi vim
+alias vi=vim
 alias ls='ls -GF'
 alias ll='ls -hl'
 alias rm='rm -i'
@@ -62,7 +62,7 @@ set -o vi
 
 #OS Specific stuff
 OS=`uname -s`
-if [ $OS == "Darwin" ]; then
+if [[ $OS == "Darwin" ]]; then
 	# Setting PATH for MacPython 2.5
 	# The orginal version is saved in .bash_profile.pysave
 	PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
@@ -94,6 +94,6 @@ if [ $OS == "Darwin" ]; then
 
 	#Python Settings
 	export PYTHONSTARTUP=$HOME/.pythonrc.py
-elif [ $OS == "Linux" ]; then
+elif [[ $OS == "Linux" ]]; then
 	git config --global --unset diff.external
 fi
