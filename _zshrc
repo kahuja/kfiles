@@ -34,6 +34,7 @@ ZSH_THEME="blinks"
 
 
 #aliases
+alias tmux="TERM=screen-256color-bce tmux"
 alias vi=vim
 alias ls='ls -GF'
 alias ll='ls -hl'
@@ -53,12 +54,16 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/${USER}/bin
+
+#Go stuff
+export GOPATH=$HOME/dev/go
+export GOROOT=/usr/local/go
+
+export PATH=$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/${USER}/bin:$GOPATH/bin
 
 
 #Set VI for the commandline editor
 set -o vi
-
 
 #OS Specific stuff
 OS=`uname -s`
