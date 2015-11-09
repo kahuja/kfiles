@@ -64,3 +64,6 @@
 [submodule "vim-csharp"]
 	path = vim-csharp
 	url = git@github.com:OrangeT/vim-csharp.git
+[submodule "_vim/bundle/vim-csharp"]
+	path = _vim/bundle/vim-csharp
+	url = git@github.com:OrangeT/vim-csharp.git
