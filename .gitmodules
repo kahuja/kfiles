@@ -43,9 +43,6 @@
 [submodule "_vim/bundle/nerdtree"]
 	path = _vim/bundle/nerdtree
 	url = https://github.com/vim-scripts/The-NERD-tree.git
-[submodule "_vim/bundle/ropevim"]
-	path = _vim/bundle/ropevim
-	url = https://github.com/sontek/rope-vim.git
 [submodule "_vim/bundle/ctrlp.vim"]
 	path = _vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
@@ -55,3 +52,15 @@
 [submodule "_vim/bundle/vim-gocode"]
 	path = _vim/bundle/vim-gocode
 	url = git@github.com:Blackrush/vim-gocode.git
+[submodule "_vim/bundle/vim-dispatch"]
+	path = _vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
+[submodule "_vim/bundle/syntastic"]
+	path = _vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic
+[submodule "_vim/bundle/omnisharp-vim"]
+	path = _vim/bundle/omnisharp-vim
+	url = git://github.com/OmniSharp/omnisharp-vim
+[submodule "vim-csharp"]
+	path = vim-csharp
+	url = git@github.com:OrangeT/vim-csharp.git
