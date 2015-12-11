@@ -11,8 +11,9 @@ set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,#,- " none of these should be word dividers, so make them not be
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 "set undofile
-set relativenumber
-colorscheme zenburn
+set number
+set nostartofline
+colorscheme solarized "zenburn
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,9 +59,11 @@ set laststatus=2 " always show the status line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set fo=tcrqn " See Help (complex)
 set ai " autoindent
-set si " smartindent 
+set si " smartindent
 set sta " smarttab
 set cindent " do c-style indenting
+set cinkeys-=0#
+set indentkeys-=0#
 set tabstop=2 " tab spacing (settings below are just to unify it)
 set softtabstop=2 " unify
 set shiftwidth=2 " unify 
@@ -279,11 +282,14 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " For Ack
-let g:ackprg="ack -H --nocolor --nogroup --column"
+let g:ackprg="ag --nogroup --nocolor --column"
 nmap <leader>a <Esc>:Ack!
 
 " For pyflakes
 let g:pyflakes_use_quickfix = 0
+
+" For Airline
+let g:airline#extensions#tabline#enabled = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DBExt Profiles

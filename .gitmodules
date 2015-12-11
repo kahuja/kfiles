@@ -67,3 +67,9 @@
 [submodule "_vim/bundle/vim-csharp"]
 	path = _vim/bundle/vim-csharp
 	url = git@github.com:OrangeT/vim-csharp.git
+[submodule "_vim/bundle/ag.vim"]
+	path = _vim/bundle/ag.vim
+	url = git@github.com:rking/ag.vim.git
+[submodule "_vim/bundle/vim-airline"]
+	path = _vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
