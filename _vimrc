@@ -85,9 +85,6 @@ autocmd FileType objc set ft=cocoa
 
 "python
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim "isk+=.,(
-au FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType python source ~/pylibs/rope.vim
-autocmd filetype python source ~/.vim/bundle/pydoc/ftplugin/python_pydoc.vim
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class tags+=~/.tags/python.2.6.6.tags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -285,9 +282,6 @@ nnoremap <C-l> <C-w>l
 let g:ackprg="ag --nogroup --nocolor --column"
 nmap <leader>a <Esc>:Ack!
 
-" For pyflakes
-let g:pyflakes_use_quickfix = 0
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " DBExt Profiles
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -321,9 +315,6 @@ function CommonGuiSetup()
 	set gfn=Monaco:10.00
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
-
-	let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
-	let g:pydiction_menu_height = 20
 endfunction
 
 function WinBaseSetup()
