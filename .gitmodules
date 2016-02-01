@@ -46,9 +46,6 @@
 [submodule "_vim/bundle/syntastic"]
 	path = _vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic
-[submodule "_vim/bundle/omnisharp-vim"]
-	path = _vim/bundle/omnisharp-vim
-	url = git://github.com/OmniSharp/omnisharp-vim
 [submodule "vim-csharp"]
 	path = vim-csharp
 	url = git@github.com:OrangeT/vim-csharp.git
