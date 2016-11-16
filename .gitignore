@@ -41,3 +41,9 @@ Thumbs.db
 ##############
 *.swp
 .swp
+
+
+# Security #
+############
+id_rsa*
+known_hosts

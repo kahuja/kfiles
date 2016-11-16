@@ -13,7 +13,8 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 "set undofile
 set number
 set nostartofline
-colorscheme solarized "zenburn
+set hidden " allow unsaved buffers
+colorscheme solarized
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
