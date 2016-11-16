@@ -11,7 +11,7 @@ set viminfo+=! " make sure it can save viminfo
 set isk+=_,$,@,%,#,- " none of these should be word dividers, so make them not be
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 "set undofile
-set relativenumber
+set hidden " allow unsaved buffers
 colorscheme zenburn
 
 
