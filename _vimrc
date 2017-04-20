@@ -14,7 +14,6 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set number
 set nostartofline
 set hidden " allow unsaved buffers
-colorscheme solarized
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -207,6 +206,7 @@ function CommonGuiSetup()
 	set gfn=Monaco:10.00
 	set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
+	colorscheme solarized
 endfunction
 
 function WinBaseSetup()

@@ -12,6 +12,17 @@ HELPDIR=/usr/local/share/zsh/help
 # time that oh-my-zsh is loaded.
 ZSH_THEME="blinks"
 
+#### funnel cloud ####
+#rbenv
+eval "$(rbenv init - --no-rehash)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+alias ember='./node_modules/ember-cli/bin/ember'
+alias servers='bundle exec foreman start'
+alias be='bundle exec'
+alias daemons='bundle exec foreman start -f Procfile.daemons'
+######################
+
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -60,6 +71,10 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+
+#sbt
+export SBT_OPTS="$SBT_OPTS -Xss256m"
+
 #Go stuff
 export GOPATH=$HOME/dev/go
 export GOROOT=/usr/local/go
@@ -73,6 +88,7 @@ set -o vi
 #OS Specific stuff
 OS=`uname -s`
 if [[ $OS == "Darwin" ]]; then
+
 	# Setting PATH for MacPython 2.5
 	# The orginal version is saved in .bash_profile.pysave
 	PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
@@ -104,6 +120,8 @@ if [[ $OS == "Darwin" ]]; then
 
 	#Python Settings
 	export PYTHONSTARTUP=$HOME/.pythonrc.py
+	export WORKON_HOME=~/.virtualenvs
+	source /usr/local/bin/virtualenvwrapper.sh
 
 	#nvm
 	export NVM_DIR="$HOME/.nvm"
@@ -124,3 +142,10 @@ if [[ $OS == "Darwin" ]]; then
 elif [[ $OS == "Linux" ]]; then
 	git config --global --unset diff.external
 fi
+
+
+#Helper functions
+mkcd () {
+  mkdir "$1"
+  cd "$1"
+}
