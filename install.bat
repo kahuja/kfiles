@@ -21,3 +21,6 @@ mklink /D "c:\Program Files (x86)\Vim\vimfiles\colors" %~dp0_vim\colors
 mklink /D "c:\Program Files (x86)\Vim\vimfiles\snippets" %~dp0_vim\snippets
 rem for /D %%G in ("%~dp0%_vim\*")  do echo "%VIMDIR%vimfiles\%G%" "%~dp0%_vim\%G%"
 rem mklink /D "%VIMDIR%vimfiles\%G%" "%~dp0%_vim\%G%" 
+
+rem Add cmd reg settings.
+add "HKLM\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "%~dp0win\_cmdrc.bat"
