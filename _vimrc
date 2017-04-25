@@ -17,12 +17,26 @@ set hidden " allow unsaved buffers
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pathogen
+" Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " turning off filetype for pathogen calls
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+	set rtp+=~/.vim/bundle/Vundle.vim
+  set rtp+=~/dev/kfiles/_vim/bundle/Vundle.vim
+	call vundle#begin()
+"set rtp+=~/dev/kfiles/_vim/bundle/Vundle.vim
+"call vundle#begin('~/dev/kfiles/_vim/bundle')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" My plugins
+Plugin 'will133/vim-dirdiff'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
 filetype on " detect the type of file
 filetype plugin indent on " load filetype plugins
 
@@ -125,30 +139,18 @@ au BufNewFile,BufRead *.prc set filetype=sql
 "DirDiff                                                                                                                                               
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.svn" 
 
-"make green
-map <Leader>mg :call MakeGreen()<cr>
-
 "Cntrl-P
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 
-"tasklist
-map <leader>tl <Plug>TaskList
-
 "Gundo
 map <leader>g :GundoToggle<CR>
-
-"SQL Complete
-let g:sql_type_default = 'sqlserver'
 
 "SuperTab
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 let g:SuperTabClosePreviewOnPopupClose = 1
-
-"NerdTree
-map <leader>n :NERDTreeToggle<CR>
 
 " Select All
 map ;a 1G yG
@@ -168,25 +170,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" For Ack
-let g:ackprg="ag --nogroup --nocolor --column"
-nmap <leader>a <Esc>:Ack!
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DBExt Profiles
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MySQL
-let g:dbext_default_profile_mysql_cc = 'type=MYSQL:user=concier_cconnect:passwd=morgan:dbname=concier_ticketorders:extra=-t'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Eclim Settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EclimProjectTreeActions = [
-    \ {'pattern': '.*', 'name': 'Edit', 'action': 'edit'},
-    \ {'pattern': '.*', 'name': 'Tab', 'action': 'tabnew'},
-    \ {'pattern': '.*', 'name': 'Split', 'action': 'split'},
-  \ ]
 
 
 function WinGuiSetup()
@@ -224,34 +207,6 @@ function LinuxBaseSetup()
 endfunction
 
 function MacBaseSetup()
-	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	" XCode Helpers
-	"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	" update the :make command to tell Xcode to build
-	"set makeprg=osascript\ -e\ \"tell\ application\ \\\"Xcode\\\"\"\ -e\ \"build\"\ -e\ \"end\ tell\"
-
-	function! XcodeClean()
-					silent execute ':!osascript -e "tell application \"Xcode\"" -e "Clean" -e "end tell"'
-	endfunction
-	command! -complete=command XcodeClean call XcodeClean()
-
-	function! XcodeDebug()
-					silent execute '!osascript -e "tell application \"Xcode\"" -e "Debug" -e "end tell"'
-	endfunction
-	command! -complete=command XcodeDebug call XcodeDebug()
-
-	function! XcodeBuid()
-		silent execute '!osascript -e "tell application \"Xcode\" to activate tell application \"System Events\" tell process \"Xcode\" click menu item \"Build\" of menu \"Build\" of menu bar 1 end tell end tell"'
-	endfunction
-	command! -complete=command XcodeBuild call XcodeBuild()
-
-	" Command-K cleans the project
-	":noremap <D-k> :XcodeClean<CR>
-	" Command-Return Starts the program in the debugger
-	":noremap <D-CR> :XcodeDebug<CR>
-	" Command-B Builds the project
-	":noremap <D-b> :XcodeBuild<CR>
-	
 endfunction
 
 

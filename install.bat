@@ -9,9 +9,15 @@ dir "%VIMDIR%_vimrc" | find "<SYMLINK>" && (
 IF EXIST "%VIMDIR%_vimrc" ren "%VIMDIR%_vimrc" "_vimrc.bak"
 mklink "%VIMDIR%_vimrc" "%~dp0_vimrc"
 
-mklink /D "c:\Program Files (x86)\Vim\vimfiles\autoload" c:\Users\kanwal\dev\kfiles\_vim\autoload
-mklink /D "c:\Program Files (x86)\Vim\vimfiles\bundle" c:\Users\kanwal\dev\kfiles\_vim\bundle
-mklink /D "c:\Program Files (x86)\Vim\vimfiles\colors" c:\Users\kanwal\dev\kfiles\_vim\colors
-mklink /D "c:\Program Files (x86)\Vim\vimfiles\snippets" c:\Users\kanwal\dev\kfiles\_vim\snippets
+dir "%VIMDIR%vimfiles" | find "<SYMLINKD>" && (
+	rmdir "%VIMDIR%vimfiles\autoload"
+	rmdir "%VIMDIR%vimfiles\bundle"
+	rmdir "%VIMDIR%vimfiles\colors"
+	rmdir "%VIMDIR%vimfiles\snippets"
+)
+mklink /D "c:\Program Files (x86)\Vim\vimfiles\autoload" %~dp0_vim\autoload
+mklink /D "c:\Program Files (x86)\Vim\vimfiles\bundle" %~dp0_vim\bundle
+mklink /D "c:\Program Files (x86)\Vim\vimfiles\colors" %~dp0_vim\colors
+mklink /D "c:\Program Files (x86)\Vim\vimfiles\snippets" %~dp0_vim\snippets
 rem for /D %%G in ("%~dp0%_vim\*")  do echo "%VIMDIR%vimfiles\%G%" "%~dp0%_vim\%G%"
 rem mklink /D "%VIMDIR%vimfiles\%G%" "%~dp0%_vim\%G%" 
