@@ -49,7 +49,6 @@ if [ $OS == "Darwin" ]; then
 
 	# python - homebrew style
 	export PATH=/usr/local/share/python:$PATH
-	export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 
 	# Set the path. Had this in .bash_login, but when i added bashrc it isn't run anymore....
 	export PATH="/Users/$USER/Library/Android/android-sdk-mac_86/platform-tools:/Users/$USER/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/usr/local/mysql/bin:/Applications:$PATH"

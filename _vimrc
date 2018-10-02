@@ -21,11 +21,8 @@ set hidden " allow unsaved buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " turning off filetype for pathogen calls
 filetype off
-	set rtp+=~/.vim/bundle/Vundle.vim
-  set rtp+=~/dev/kfiles/_vim/bundle/Vundle.vim
-	call vundle#begin()
-"set rtp+=~/dev/kfiles/_vim/bundle/Vundle.vim
-"call vundle#begin('~/dev/kfiles/_vim/bundle')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
@@ -33,12 +30,20 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'will133/vim-dirdiff'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'dsawardekar/wordpress.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'chr4/nginx.vim'
+Plugin 'elixir-editors/vim-elixir'
 
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype on " detect the type of file
 filetype plugin indent on " load filetype plugins
+syntax enable
+filetype on " detect the type of file
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
@@ -146,11 +151,9 @@ nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 "Gundo
 map <leader>g :GundoToggle<CR>
 
-"SuperTab
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
+"Wordpress.vim
+let g:wordpress_vim_ctags_path='/usr/local/bin/ctags'
+let g:wordpress_vim_wordpress_path='~/ingenio/src/media-backoffice-cms/wordpress/html'
 
 " Select All
 map ;a 1G yG
