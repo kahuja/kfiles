@@ -41,6 +41,7 @@ alias ls='ls -GF'
 alias ll='ls -hl'
 alias rm='rm -i'
 alias cp='cp -i'
+alias ag='ag --path-to-ignore ~/.ignore'
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -68,9 +69,6 @@ antigen apply
 
 zle -N zle-line-init
 
-
-
-
 #Set VI for the commandline editor
 set -o vi
 
@@ -82,15 +80,11 @@ if [[ $OS == "Darwin" ]]; then
 	export GOPATH=$HOME/dev/go
 	export GOROOT=/usr/local/go
 
-	export PATH=$PATH:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/${USER}/bin:$GOPATH/bin
+	export PATH=$PATH:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/${USER}/bin:$GOPATH/bin
 
-	# Setting PATH for MacPython 2.5
-	# The orginal version is saved in .bash_profile.pysave
-	PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
-	export PATH
 
 	# python - homebrew style
-	export PATH=/usr/local/share/python:$PATH
+	export PATH=$PATH
 
 	# Set the path. Had this in .bash_login, but when i added bashrc it isn't run anymore....
 	export PATH="/Users/$USER/Library/Android/android-sdk-mac_86/platform-tools:/Users/$USER/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/usr/local/mysql/bin:/Applications:$PATH"
@@ -106,7 +100,7 @@ if [[ $OS == "Darwin" ]]; then
 	export MONO_PATH=/Library/Frameworks/Mono.framework/Versions/Current/share/NAnt/bin
 
 	# Homebrew
-	export PATH=/usr/local/bin:$PATH
+	export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH
 
 	#Perl Settings
 	export VERSIONER_PERL_PREFER_32_BIT=yes

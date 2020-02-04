@@ -4,3 +4,6 @@ SendEnv GIT_*
 Host svn.horo.ingenio.com
 User svn
 
+Host *
+	UseKeychain yes
+

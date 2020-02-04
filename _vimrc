@@ -28,15 +28,18 @@ Plugin 'VundleVim/Vundle.vim'
 
 " My plugins
 Plugin 'will133/vim-dirdiff'
-Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'dsawardekar/wordpress.vim'
-Plugin 'StanAngeloff/php.vim'
 Plugin 'tpope/vim-markdown'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'chr4/nginx.vim'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf.vim'
+"Plugin 'w0rp/ale'
 
 
 " All of your Plugins must be added before the following line
@@ -61,6 +64,7 @@ set showcmd "show partial command in last line of screen
 set wildmenu "tab will show a list of possible commands
 set wildmode=list:longest
 set cursorline "highlight the line that you are on
+set cursorcolumn "highlight the column that you are on
 set ttyfast
 set mat=5 " how many tenths of a second to blink matching brackets for
 set ignorecase
@@ -86,8 +90,8 @@ set indentkeys-=0#
 set tabstop=2 " tab spacing (settings below are just to unify it)
 set softtabstop=2 " unify
 set shiftwidth=2 " unify 
-set noexpandtab " real tabs please!
-"set expandtab
+"set noexpandtab " real tabs please!
+set expandtab
 set nowrap " do not wrap lines  
 set smarttab " use tabs at the start of a line, spaces elsewhere
 "this is causing a conflict with snipmate plugin
@@ -139,17 +143,37 @@ map ;0 :tabn 10<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufNewFile,BufRead *.prc set filetype=sql
 
+" Ale
+let g:ale_fixers = {'typescript': ['prettier']}
 
+" tsuquyomi
+let g:tsuquyomi_singlequate_import = 1
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_filetype_specific_completion_to_disable = {
+      \   'gitcommit': 1,
+      \   'typescript': 1
+      \ }
+
+"fzf
+set rtp+=/usr/local/opt/fzf
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
+"Surround
+"d
+let g:surround_100 = "{{ \r }}"
+"g
+let g:surround_103 = "{{ '\r' | translate }}"
+let g:surround_71 = "{{ '\r' | translate | titlecase }}"
+
+"Emmet
+let g:user_emmet_leader_key=','
 
 "DirDiff                                                                                                                                               
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.svn" 
-
-"Cntrl-P
-nmap <leader>t :CtrlP<CR>
-nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-
-"Gundo
-map <leader>g :GundoToggle<CR>
 
 "Wordpress.vim
 let g:wordpress_vim_ctags_path='/usr/local/bin/ctags'
