@@ -15,7 +15,6 @@ set number
 set nostartofline
 set hidden " allow unsaved buffers
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -27,6 +26,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " My plugins
+Plugin 'sheerun/vim-polyglot'
 Plugin 'will133/vim-dirdiff'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
@@ -40,6 +40,7 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 "Plugin 'w0rp/ale'
+Plugin 'posva/vim-vue'
 
 
 " All of your Plugins must be added before the following line
@@ -52,6 +53,10 @@ filetype on " detect the type of file
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark " we are using a dark background
+" solarized options 
+let g:solarized_termtrans = 1
+"let g:solarized_termcolors = 16
+colorscheme solarized
 syntax on " syntax highlighting on
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

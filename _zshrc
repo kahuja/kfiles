@@ -63,6 +63,7 @@ antigen bundle zsh-users/zsh-history-substring-search ./zsh-history-substring-se
 
 # Load the theme.
 antigen theme blinks
+#antigen theme romkatv/powerlevel10k
 
 # Tell antigen that you're done.
 antigen apply
@@ -71,6 +72,9 @@ zle -N zle-line-init
 
 #Set VI for the commandline editor
 set -o vi
+#
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
 
 #OS Specific stuff
 OS=`uname -s`
@@ -82,9 +86,8 @@ if [[ $OS == "Darwin" ]]; then
 
 	export PATH=$PATH:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/${USER}/bin:$GOPATH/bin
 
-
-	# python - homebrew style
-	export PATH=$PATH
+  # flutter
+  export PATH=$PATH:~/dev/flutter/bin
 
 	# Set the path. Had this in .bash_login, but when i added bashrc it isn't run anymore....
 	export PATH="/Users/$USER/Library/Android/android-sdk-mac_86/platform-tools:/Users/$USER/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:/usr/local/mysql/bin:/Applications:$PATH"
@@ -102,6 +105,9 @@ if [[ $OS == "Darwin" ]]; then
 	# Homebrew
 	export PATH=/usr/local/opt/python/libexec/bin:/usr/local/bin:$PATH
 
+  #dotnet core
+  export PATH="/Users/$USER/.dotnet/tools:$PATH"
+
 	#Perl Settings
 	export VERSIONER_PERL_PREFER_32_BIT=yes
 	export VERSIONER_PERL_VERSION=5.12.3
@@ -109,6 +115,8 @@ if [[ $OS == "Darwin" ]]; then
 	#Python Settings
 	export PYTHONSTARTUP=$HOME/.pythonrc.py
 	export WORKON_HOME=~/.virtualenvs
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@3.8/bin/python3.8
+  export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 	source /usr/local/bin/virtualenvwrapper.sh
 
 	#nvm

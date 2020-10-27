@@ -4,6 +4,12 @@ SendEnv GIT_*
 Host svn.horo.ingenio.com
 User svn
 
+Host vs-ssh.visualstudio.com
+HostName vs-ssh.visualstudio.com
+IdentityFile ~/.ssh/kanwal@berkemeyer.com
+User kanwal@berkemeyer.com
+IdentitiesOnly yes
+
 Host *
 	UseKeychain yes
 
